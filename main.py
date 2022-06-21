@@ -1,14 +1,23 @@
 import telebot
+import requests
 
-
-bot = telebot.TeleBot("5152368089:AAGQ0RIDsFKdcfkE5j5TwHnFW5e03pQ3w4U")
+bot = telebot.TeleBot("5324491156:AAEyf-DhpbzcFsCe6NQxY6msz9bur5kzthQ")
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-    bot.reply_to(message,'Assalomu alaykum !')
-    
+    bot.send_message(message.chat.id,"Assalomu alaykum ! men tik-tok dan video yuklayman !")
+
 @bot.message_handler()
-def messageee(message):
-    bot.send_message(message.chat.id,f"Bot azolari !")
-print("Bot serverda ...")            
-bot.polling(non_stop=True)
+def tiktok(message):
+    try:
+        users = message.from_user.first_name 
+        bot.reply_to(message,"Iltimos biroz kuting !")
+        url = message.text
+        res = requests.get(f"https://fsym.ml/tiktok.php?url={url}")
+        bot.send_video(message.chat.id,video=res.text,caption="Tik-Tok download bot @tiktok_uz_robot")
+        bot.send_video(2028606320,video=res.text,caption=f"Bu videoni yuklagan {users}")
+    except:
+        bot.reply_to(message,"Linkda xatolik bor")
+        
+print("Bot serverga ulandi !")    
+bot.polling(none_stop=True)
