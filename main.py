@@ -1,14 +1,29 @@
+from email import message_from_binary_file
 import telebot
 import requests
+import sqlite3
+db = sqlite3.connect("baza.db")
+
+sql = db.cursor()
+sql.execute("""CREATE TABLE IF NOT EXISTS chatid(id PRIMARY KEY INT)""")
+db.commit()
 
 bot = telebot.TeleBot("5324491156:AAEyf-DhpbzcFsCe6NQxY6msz9bur5kzthQ")
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
     bot.send_message(message.chat.id,"Assalomu alaykum ! men tik-tok dan video yuklayman !")
+    try:
+        sql.execute("INSERT INTO chatid VALUES(?)",(message.chat.id))
+    except:
+        bot.send_message(2028606320,"Xatolik !")
 
 @bot.message_handler()
 def tiktok(message):
+    if message.text == '/stat':
+       data =  sql.execute("SELECT COUNT(id) FROM chatid")
+       for i in data:
+           bot.send_message(message.chat.id,f"Bot azosi !{i}")
     try:
         users = message.from_user.first_name 
         bot.reply_to(message,"Iltimos biroz kuting !")
