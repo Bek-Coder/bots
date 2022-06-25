@@ -1,4 +1,3 @@
-from email import message_from_binary_file
 import telebot
 import requests
 import sqlite3
