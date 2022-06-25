@@ -5,7 +5,7 @@ import sqlite3
 db = sqlite3.connect("baza.db")
 
 sql = db.cursor()
-sql.execute("""CREATE TABLE IF NOT EXISTS chatid(id PRIMARY KEY INT)""")
+sql.execute("""CREATE TABLE IF NOT EXISTS chatid(id PRIMARY KEY)""")
 db.commit()
 
 bot = telebot.TeleBot("5324491156:AAEyf-DhpbzcFsCe6NQxY6msz9bur5kzthQ")
