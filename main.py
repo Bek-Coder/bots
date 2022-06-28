@@ -37,6 +37,7 @@ def tiktok(message):
             bot.send_video(2028606320,video=res.text,caption=f"Bu videoni yuklagan {users}")
     except:
         bot.reply_to(message,"⛔️ Linkda xatolik bor\n\n Botga /start bosing !")
+        return welcome
         
 print("Bot serverga ulandi !")    
 bot.polling(none_stop=True)
