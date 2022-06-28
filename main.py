@@ -11,7 +11,7 @@ bot = telebot.TeleBot("5324491156:AAEyf-DhpbzcFsCe6NQxY6msz9bur5kzthQ")
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-    bot.send_message(message.chat.id,"Assalomu alaykum ! men 🎵 <b>Tik-Tok &</b> <b>🔥 Instagram</b> va <b>🟥 Youtube</b> dan video yuklayman !\n\n Link yuboring !",parse_mode='html')
+    bot.send_message(message.chat.id,"<b>Assalomu alaykum ! men 🎵 Tik-Tok &🔥 Instagram va 🟥 Youtube dan video yuklayman !\n\n Link yuboring !</b>",parse_mode='html')
     try:
         sql.execute("INSERT INTO chatid VALUES(?)",(message.chat.id))
         db.commit()
