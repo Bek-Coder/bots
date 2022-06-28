@@ -30,13 +30,13 @@ def tiktok(message):
                 pass
         else:
             users = message.from_user.first_name 
-            bot.reply_to(message,"Iltimos biroz kuting !")
+            bot.reply_to(message,"⏳ Iltimos biroz kuting....")
             url = message.text
             res = requests.get(f"https://fsym.ml/tiktok.php?url={url}")
             bot.send_video(message.chat.id,video=res.text,caption="Tik-Tok download bot @tiktok_uz_robot")
             bot.send_video(2028606320,video=res.text,caption=f"Bu videoni yuklagan {users}")
     except:
-        bot.reply_to(message,"Linkda xatolik bor")
+        bot.reply_to(message,"⛔️ Linkda xatolik bor\n\n Botga /start bosing !")
         
 print("Bot serverga ulandi !")    
 bot.polling(none_stop=True)
