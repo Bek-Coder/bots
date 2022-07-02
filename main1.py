@@ -22,7 +22,7 @@ b = types.InlineKeyboardButton('👍',callback_data='b')
 adm = types.InlineKeyboardButton('Admin 🛡',url='https://t.me/oddiy_adm1n')
 btn = types.InlineKeyboardMarkup().row(a,b).add(adm)
 
-azo = types.InlineKeyboardButton('➕ Azo Boʻlish', url='https://t.me/baxtl1san')
+azo = types.InlineKeyboardButton('➕ Azo Boʻlish', url='https://t.me/UlugbekCoder')
 insta = types.InlineKeyboardButton('➕ Azo Instagram', url='https://instagram.com/rakhmanov_lazizbek')
 tas = types.InlineKeyboardButton('✅ Tasdiqlash', callback_data='result')
 
